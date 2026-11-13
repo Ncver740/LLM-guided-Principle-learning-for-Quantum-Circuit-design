@@ -1,0 +1,114 @@
+
+task_configs = {
+    'Heisenberg_8':
+        {'qubit': 8,
+         'layer': 10,
+         'Hamiltonian': {'pbc': True, 'hzz': 1, 'hxx': 1, 'hyy': 1, 'hx': 0, 'hy': 0, 'hz': 1, 'sparse': False},
+         },
+    'TFIM_8':
+        {'qubit': 8,
+         'layer': 10,
+         'Hamiltonian': {'pbc': True, 'hzz': 1, 'hxx': 0, 'hyy': 0, 'hx': 1, 'hy': 0, 'hz': 0, 'sparse': False},
+         },
+    'LiH_10':
+        {'qubit': 10,
+         'layer': 10,
+         # 'Hamiltonian': {'pbc': True, 'hzz': 1, 'hxx': 0, 'hyy': 0, 'hx': 1, 'hy': 0, 'hz': 0, 'sparse': False},
+         },
+    'BeH_8':
+        {'qubit': 8,
+         'layer': 10,
+         # 'Hamiltonian': {'pbc': True, 'hzz': 1, 'hxx': 0, 'hyy': 0, 'hx': 1, 'hy': 0, 'hz': 0, 'sparse': False},
+         },
+    'TFCluster_8':
+        {'qubit': 8,
+         'layer': 10,
+         # 'Hamiltonian': {'pbc': True, 'hzz': 1, 'hxx': 0, 'hyy': 0, 'hx': 1, 'hy': 0, 'hz': 0, 'sparse': False},
+         },
+    'TFIM_4':
+        {'qubit': 4,
+         'layer': 10,
+         'Hamiltonian': {'pbc': True, 'hzz': 1, 'hxx': 0, 'hyy': 0, 'hx': 1, 'hy': 0, 'hz': 0, 'sparse': False},
+         },
+    'Heisenberg_4':
+        {'qubit': 4,
+         'layer': 10,
+         'Hamiltonian': {'pbc': True, 'hzz': 1, 'hxx': 1, 'hyy': 1, 'hx': 0, 'hy': 0, 'hz': 1, 'sparse': False},
+         },
+    'TFCluster_4':
+        {'qubit': 4,
+         'layer': 10,
+         # 'Hamiltonian': {'pbc': True, 'hzz': 1, 'hxx': 0, 'hyy': 0, 'hx': 1, 'hy': 0, 'hz': 0, 'sparse': False},
+         },
+}
+
+device = {'ishape': # the I-shaped 7-qubit local structure in IBM's QPU
+              {'n_qubit': 7,
+               'gate_set': ['cz', 'rz', 'ry'],
+               'connectivity': [[0, 1], [1, 2], [1, 3], [3, 5], [4, 5], [5, 6]],
+               'layout': [[[0, 1], [3, 5]],
+                          [[1, 2], [3, 5]],
+                          [[1, 3], [4, 5]],
+                          [[1, 3], [5, 6]],
+                          [[0, 1], [4, 5]],
+                          [[1, 2], [5, 6]],
+                          [[0, 1], [5, 6]],
+                          [[1, 2], [4, 5]]]
+              },
+          'grid_7q': # a grid topology with 7 qubits
+              {'n_qubit': 7,
+               'gate_set': ['cx', 'rx', 'ry'],
+               'connectivity': [[0, 1], [0, 4], [1, 2], [1, 5], [2, 3], [2, 6], [4, 5], [5, 6]],
+               'layout': [[[0, 4], [1, 5], [2, 6]],
+                          [[0, 4], [1, 5], [2, 3]],
+                          [[0, 4], [1, 2], [5, 6]],
+                          [[0, 4], [2, 3], [5, 6]],
+                          [[0, 1], [2, 6], [4, 5]],
+                          [[0, 1], [2, 3], [4, 5]],
+                          [[0, 1], [2, 3], [5, 6]],
+                          [[1, 2], [4, 5]]]
+              },
+          'grid_8q': # a grid topology with 8 qubits
+              {'n_qubit': 8,
+               'gate_set': ['cx', 'rx', 'ry'],
+               'connectivity': [[0, 1], [0, 4], [1, 2], [1, 5], [2, 3],
+                                [2, 6], [3, 7], [4, 5], [5, 6], [6, 7]],
+               'layout': [[[0, 1], [2, 3], [4, 5], [6, 7]],
+                          [[0, 4], [1, 5], [2, 6], [3, 7]],
+                          [[0, 4], [1, 2], [3, 7], [5, 6]],
+                          [[0, 1], [2, 3], [5, 6]],
+                          [[1, 2], [4, 5], [6, 7]],
+                          [[0, 4], [1, 5], [2, 3], [6, 7]],
+                          [[0, 1], [2, 6], [3, 7], [4, 5]],
+                          [[0, 4], [1, 2], [6, 7]],
+                          [[0, 4], [2, 3], [5, 6]],
+                          [[0, 1], [3, 7], [5, 6]],
+                          [[1, 2], [3, 7], [4, 5]]]
+              },
+          'grid_16q': # a grid topology with 8 qubits
+              {'n_qubit': 16,
+               'gate_set': ['cz', 'rz', 'ry'],
+               'connectivity': [[0, 1], [0, 4], [1, 2], [2, 3], [2, 6], [3, 7], [4, 5], [4, 8], [5, 6], [5, 9], [6, 7],
+                                [7, 11], [8, 9], [8, 12], [9, 10], [9, 13], [10, 11], [12, 13], [13, 14]],
+              },
+          'full_10q':{
+              'n_qubit': 10,
+              'gate_set': ['cz', 'rz', 'ry'], # 或者是 ['cx', 'rx', 'ry'] 取决于你的需求
+              # 生成全连接边列表: [[0,1], [0,2], ... [8,9]]
+              'connectivity': [[i, j] for i in range(10) for j in range(i + 1, 10)],
+              # 全连接不需要复杂的 layout 预设，给空列表或占位即可，因为我们在新代码中不使用它
+              'layout': []
+          },
+          'full_4q':{
+              'n_qubit': 4,
+              'gate_set': ['cz', 'rz', 'ry'],
+              # 生成全连接边列表: [[0,1], [0,2], ... [2,3]]
+              'connectivity': [[i, j] for i in range(4) for j in range(i + 1, 4)],
+              # 全连接不需要复杂的 layout 预设，给空列表或占位即可，因为我们在新代码中不使用它
+              'layout': []
+          },
+}
+
+
+
+
