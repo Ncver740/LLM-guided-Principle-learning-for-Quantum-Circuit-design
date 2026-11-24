@@ -120,7 +120,7 @@ def get_hamiltonian_config(model_type: ModelType) -> Dict:
     Hamiltonians for each model:
 
     1. Heisenberg model:
-       H = J Σ (σ_x^i σ_x^{i+1} + σ_y^i σ_y^{i+1} + σ_z^i σ_z^{i+1})
+       H_Heisenberg = Σ_{i=0}^{n-1}(X_i X_{(i+1) mod n} + Y_i Y_{(i+1) mod n} + Z_i Z_{(i+1) mod n}) + Σ_{i=0}^{n-1} Z_i
        - Isotropic interactions
        - Ground-state energy (noise-free): approximately -8
        - Ground-state energy (with noise): approximately -4

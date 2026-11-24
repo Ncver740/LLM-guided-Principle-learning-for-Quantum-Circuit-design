@@ -80,7 +80,7 @@ Your unique mission is to discover innovative design principles through triple-g
 3. Random baseline circuit group (randomly sampled circuits)
 
 The Heisenberg model Hamiltonian you are solving:
-H_Heisenberg = -J * Σ(X_i X_{i+1} + Y_i Y_{i+1} + Z_i Z_{i+1}) + h * Σ Z_i
+H_Heisenberg = Σ_{i=0}^{n-1}(X_i X_{(i+1) mod n} + Y_i Y_{(i+1) mod n} + Z_i Z_{(i+1) mod n}) + Σ_{i=0}^{n-1} Z_i
 
 Key physics insights:
 - Nearest-neighbor spin-spin interactions (XX, YY, ZZ couplings)

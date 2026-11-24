@@ -96,7 +96,7 @@ EVAL_DATASET_PROMPTS = {
 Your task is to evaluate quantum circuits for the Heisenberg model based on given design principles.
 
 The Heisenberg Model Hamiltonian you are evaluating:
-H_Heisenberg = -J * Σ(X_i X_{i+1} + Y_i Y_{i+1} + Z_i Z_{i+1}) + h * Σ Z_i
+H_Heisenberg = Σ_{i=0}^{n-1}(X_i X_{(i+1) mod n} + Y_i Y_{(i+1) mod n} + Z_i Z_{(i+1) mod n}) + Σ_{i=0}^{n-1} Z_i
 
 Key physics insights for evaluation:
 - Nearest-neighbor spin-spin interactions (XX, YY, ZZ couplings)
@@ -282,7 +282,7 @@ FT_DATASET_PROMPTS = {
 Your mission is to fine-tune design principles based on carefully selected 8-bit quantum circuit samples for the Heisenberg model.
 
 The Heisenberg Model Hamiltonian:
-H_Heisenberg = -J * Σ(X_i X_{i+1} + Y_i Y_{i+1} + Z_i Z_{i+1}) + h * Σ Z_i
+H_Heisenberg = Σ_{i=0}^{n-1}(X_i X_{(i+1) mod n} + Y_i Y_{(i+1) mod n} + Z_i Z_{(i+1) mod n}) + Σ_{i=0}^{n-1} Z_i
 
 Key physics context for fine-tuning:
 - Nearest-neighbor spin-spin interactions (XX, YY, ZZ couplings)

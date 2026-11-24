@@ -119,7 +119,7 @@ def get_hamiltonian_config(model_type: ModelType) -> Dict:
     Models differ in their coupling terms:
 
     1. Heisenberg Model:
-       H = J Σ (σ_x^i σ_x^{i+1} + σ_y^i σ_y^{i+1} + σ_z^i σ_z^{i+1})
+       H_Heisenberg = Σ_{i=0}^{n-1}(X_i X_{(i+1) mod n} + Y_i Y_{(i+1) mod n} + Z_i Z_{(i+1) mod n}) + Σ_{i=0}^{n-1} Z_i
        - Isotropic interaction in all three directions
        - Ground state energy (noisy): ~-4
        - Ground state energy (ideal): ~-8
@@ -150,9 +150,9 @@ def get_hamiltonian_config(model_type: ModelType) -> Dict:
             "hz": 1.0,
             "target_energy_noisy": -11.5451,
             "target_energy_ideal": -8.0,
-            "circuit_depth_range": (15, 25),
-            "parameterized_gates_range": (20, 35),
-            "two_qubit_gates_range": (8, 15),
+            "circuit_depth_range": (10, 25),
+            "parameterized_gates_range": (15, 30),
+            "two_qubit_gates_range": (5, 12),
         },
         ModelType.TFIM: {
             "name": "TFIM",
@@ -211,8 +211,8 @@ Each two-qubit gate is [gate_type, qubit1, qubit2].""",
 
 Requirements:
 - Use exactly {num_qubits} qubits
-- Use 20-35 parameterized gates and 8-15 two-qubit gates
-- Keep depth around 15-25
+- Use 15-30 parameterized gates and 5-12 two-qubit gates per circuit
+- Keep depth around 10-25
 - Prefer efficient entanglement and diverse topologies
 - Return ONLY a Python list with no explanation
 
